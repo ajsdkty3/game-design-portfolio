@@ -1,0 +1,11 @@
+{
+  "name": "erfei-zhou-game-design-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static portfolio site for Erfei Zhou's game design master's applications.",
+  "scripts": {
+    "serve": "node tools/serve.mjs . 8080",
+    "build": "node tools/build.mjs",
+    "preview": "node tools/serve.mjs dist 4173"
+  }
+}
