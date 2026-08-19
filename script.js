@@ -4,7 +4,7 @@ const projects = [
     meta: "Main project",
     summary:
       "A placeholder for the strongest project in the portfolio, presented as a full case study.",
-    imageSrc: "public/img/project-placeholder.svg",
+    imageSrc: "public/img/placeholder-word.svg",
     imageAlt: "Placeholder image for thesis portfolio project",
     detail: {
       intro:
@@ -38,7 +38,7 @@ const projects = [
     meta: "Project",
     summary:
       "A slot for spatial design, encounter flow, puzzle layout, or player guidance work.",
-    imageSrc: "public/img/project-placeholder.svg",
+    imageSrc: "public/img/placeholder-word.svg",
     imageAlt: "Placeholder image for level design case study",
     detail: {
       intro:
@@ -72,7 +72,7 @@ const projects = [
     meta: "Project",
     summary:
       "A slot for combat systems, progression loops, balancing experiments, or rule design.",
-    imageSrc: "public/img/project-placeholder.svg",
+    imageSrc: "public/img/placeholder-word.svg",
     imageAlt: "Placeholder image for systems design prototype",
     detail: {
       intro:
@@ -106,7 +106,7 @@ const projects = [
     meta: "Project",
     summary:
       "A slot for branching structure, quest pacing, player motivation, or narrative integration.",
-    imageSrc: "public/img/project-placeholder.svg",
+    imageSrc: "public/img/placeholder-word.svg",
     imageAlt: "Placeholder image for narrative or quest design piece",
     detail: {
       intro:
@@ -140,7 +140,7 @@ const projects = [
     meta: "Project",
     summary:
       "A slot for showing teamwork, communication, and design ownership inside a shared production pipeline.",
-    imageSrc: "public/img/project-placeholder.svg",
+    imageSrc: "public/img/placeholder-word.svg",
     imageAlt: "Placeholder image for collaborative team project",
     detail: {
       intro:

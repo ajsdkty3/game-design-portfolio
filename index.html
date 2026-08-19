@@ -11,42 +11,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <header class="site-header">
+    <header class="topbar">
+      <div class="topbar-inner">
         <a class="brand" href="#top">Erfei Zhou</a>
         <nav class="site-nav">
           <a href="#about">About Me</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
-      </header>
+      </div>
+    </header>
 
-      <main id="top">
-        <section class="section about-section" id="about">
+    <main id="top">
+      <section class="hero-banner" aria-label="Portfolio hero banner">
+        <div class="hero-overlay"></div>
+        <img class="hero-placeholder" src="public/img/placeholder-word.svg" alt="Placeholder banner graphic" />
+      </section>
+
+      <section class="about-panel section" id="about">
+        <div class="content-shell">
           <h1>About Me</h1>
-          <p class="about-copy">
-            Hi, I'm Erfei Zhou, an aspiring generalist game designer preparing this
-            portfolio for game design master's applications. I'm interested in how
-            mechanics, level flow, onboarding, iteration, and presentation come together
-            to shape the overall player experience.
-          </p>
-        </section>
-
-        <section class="section projects-section" id="projects">
-          <div class="section-intro">
-            <h2>Projects</h2>
-            <p>Click on a project to open a more detailed page with design notes, media, and video placeholders.</p>
+          <div class="about-text">
+            <p>
+              Hi! I'm Erfei Zhou, an aspiring generalist game designer preparing this
+              portfolio for game design master's applications. I'm especially interested
+              in how mechanics, level flow, onboarding, iteration, and presentation
+              come together to shape the overall player experience.
+            </p>
+            <p>
+              This website is meant to present my work in a simple project-first way.
+              Below you can click into each project to see more detailed notes, media,
+              and video placeholders that we will replace with real assets later.
+            </p>
           </div>
-          <div class="projects-list" id="projects-list"></div>
-        </section>
+        </div>
+      </section>
 
-        <section class="section contact-section" id="contact">
+      <section class="projects-panel section" id="projects">
+        <div class="content-shell">
+          <h2>Projects</h2>
+          <p class="projects-lead">Click on the tiles to open more information about each project.</p>
+          <div class="projects-grid" id="projects-list"></div>
+        </div>
+      </section>
+
+      <section class="contact-panel section" id="contact">
+        <div class="content-shell">
           <h2>Contact</h2>
           <div class="contact-list">
             <a href="mailto:your.email@example.com">your.email@example.com</a>
@@ -54,9 +70,9 @@
             <a href="https://www.linkedin.com/in/your-name">linkedin.com/in/your-name</a>
             <a href="https://your-name.itch.io">your-name.itch.io</a>
           </div>
-        </section>
-      </main>
-    </div>
+        </div>
+      </section>
+    </main>
 
     <div class="modal hidden" id="project-modal" aria-hidden="true">
       <div class="modal-backdrop" data-close-modal="true"></div>
