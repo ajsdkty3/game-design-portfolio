@@ -4,7 +4,8 @@ const projects = [
     meta: "Main project",
     summary:
       "A placeholder for the strongest project in the portfolio, presented as a full case study.",
-    imageLabel: "Project Image",
+    imageSrc: "public/img/project-placeholder.svg",
+    imageAlt: "Placeholder image for thesis portfolio project",
     detail: {
       intro:
         "Use this page for the project that best represents your overall game design thinking and application strengths.",
@@ -37,7 +38,8 @@ const projects = [
     meta: "Project",
     summary:
       "A slot for spatial design, encounter flow, puzzle layout, or player guidance work.",
-    imageLabel: "Project Image",
+    imageSrc: "public/img/project-placeholder.svg",
+    imageAlt: "Placeholder image for level design case study",
     detail: {
       intro:
         "This slot works well for a level design piece with blockouts, maps, screenshots, and explanation of flow.",
@@ -70,7 +72,8 @@ const projects = [
     meta: "Project",
     summary:
       "A slot for combat systems, progression loops, balancing experiments, or rule design.",
-    imageLabel: "Project Image",
+    imageSrc: "public/img/project-placeholder.svg",
+    imageAlt: "Placeholder image for systems design prototype",
     detail: {
       intro:
         "Use this section to explain how mechanics connect together and how you tuned the player experience.",
@@ -103,7 +106,8 @@ const projects = [
     meta: "Project",
     summary:
       "A slot for branching structure, quest pacing, player motivation, or narrative integration.",
-    imageLabel: "Project Image",
+    imageSrc: "public/img/project-placeholder.svg",
+    imageAlt: "Placeholder image for narrative or quest design piece",
     detail: {
       intro:
         "Use this project to show how narrative goals, gameplay beats, and player clarity work together.",
@@ -136,7 +140,8 @@ const projects = [
     meta: "Project",
     summary:
       "A slot for showing teamwork, communication, and design ownership inside a shared production pipeline.",
-    imageLabel: "Project Image",
+    imageSrc: "public/img/project-placeholder.svg",
+    imageAlt: "Placeholder image for collaborative team project",
     detail: {
       intro:
         "Use this project to show how you contribute as a generalist designer within a team setting.",
@@ -173,10 +178,7 @@ function renderProjects() {
     .map(
       (project, index) => `
         <button class="project-item" type="button" data-project-index="${index}">
-          <span class="project-image" aria-hidden="true">
-            <span class="project-image-icon"></span>
-            <span class="project-image-label">${project.imageLabel}</span>
-          </span>
+          <img class="project-image" src="${project.imageSrc}" alt="${project.imageAlt}" />
           <span class="project-text">
             <span class="project-meta">${project.meta}</span>
             <span class="project-title">${project.title}</span>
