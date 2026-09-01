@@ -40,7 +40,7 @@ const projectSlides = [
   },
   {
     title: "AERO MEMOIR",
-    meta: "Team Project · 2026 · Platformer · Game Jam",
+    meta: "Team Project · 2026 · Platformer · 2 Week Jam",
     summary:
       "A first-person climbing game where players follow a mysterious voice toward the top of a tower. I focused on level design, production, and visual design, while coordinating the team through the GDD and task planning.",
     imageSrc: "public/img/placeholder-word-v2.svg",
@@ -117,7 +117,7 @@ const projectSlides = [
   },
   {
     title: "SHARDEMONIUM",
-    meta: "Team Project · 2026 · Arena Shooter · Game Jam",
+    meta: "Team Project · 2026 · Arena Shooter · 3 Day Jam",
     summary:
       "A high-intensity arena shooter inspired by Devil Daggers, built around fast combat and escalating pressure. I focused on level design and visual design, shaping the arena, atmosphere, and combat feedback.",
     imageSrc: "public/img/placeholder-word-v2.svg",
