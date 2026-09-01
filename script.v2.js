@@ -217,6 +217,7 @@ function renderSlides() {
                   <span class="tag tag-pink">Level Design</span>
                   <span class="tag tag-purple">Systems</span>
                   <span class="tag tag-coral">Player Experience</span>
+                  <span class="tag tag-red">VFX</span>
                 </div>
                 <p class="hero-copy">
                   My name is <em>Erfei Zhou</em>. I'm a game designer with experience in
