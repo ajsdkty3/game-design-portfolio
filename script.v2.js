@@ -5,6 +5,8 @@ const projectSlides = [
     summary:
       "A short first-person walking simulator inspired by the SCP universe. I focused on using lighting and visual composition to guide the player through the environment.",
     imageSrc: "public/img/placeholder-word-v2.svg",
+    backgroundSrc: "content/scp093_background.png",
+    heroVideoSrc: "content/scp093.mp4",
     imageAlt: "Placeholder image for SCP-093",
     links: [
       {
@@ -243,7 +245,7 @@ function renderSlides() {
       const isAlt = index % 2 === 1 ? " alt" : "";
       const backgroundImage =
         index === 1
-          ? `<img class="project-background" src="${project.imageSrc}" alt="" aria-hidden="true" />`
+          ? `<img class="project-background" src="${project.backgroundSrc || project.imageSrc}" alt="" aria-hidden="true" />`
           : "";
       const projectLinks = project.links
         ? `
@@ -257,21 +259,34 @@ function renderSlides() {
             </div>
           `
         : "";
+      const projectMedia = project.heroVideoSrc
+        ? `
+            <button class="project-media-button" type="button" data-project-index="${index - 1}" aria-label="Open ${project.title} project details">
+              <div class="project-video-frame">
+                <video class="project-visual project-visual-video" autoplay muted loop playsinline aria-label="${project.title} gameplay preview">
+                  <source src="${project.heroVideoSrc}" type="video/mp4" />
+                  Your browser does not support embedded video.
+                </video>
+              </div>
+            </button>
+          `
+        : `
+            <button class="project-media-button" type="button" data-project-index="${index - 1}" aria-label="Open ${project.title} project details">
+              <img class="project-visual" src="${project.imageSrc}" alt="${project.imageAlt}" />
+            </button>
+          `;
 
       return `
         <article class="slide project-slide${backgroundImage ? " project-with-background" : ""}${isAlt}" data-slide-index="${index}">
           ${backgroundImage}
           <div class="slide-surface">
             <div class="project-layout">
-              <img class="project-visual" src="${project.imageSrc}" alt="${project.imageAlt}" />
+              ${projectMedia}
               <div class="project-panel">
                 <h3 class="project-title">${project.title}</h3>
                 <span class="project-label">${project.meta}</span>
                 <p class="project-copy">${project.summary}</p>
                 ${projectLinks}
-                <button class="project-button" type="button" data-project-index="${index - 1}">
-                  Project Details
-                </button>
               </div>
             </div>
           </div>
@@ -340,6 +355,9 @@ function prevSlide() {
 function openModal(project) {
   const modal = document.getElementById("project-modal");
   const content = document.getElementById("modal-content");
+  const panel = modal.querySelector(".modal-panel");
+
+  panel.classList.toggle("scp-modal", project.title === "SCP-093");
 
   const sectionsHtml = project.detail.sections
     .map((section) => {
@@ -348,6 +366,18 @@ function openModal(project) {
           <section class="modal-section">
             <h4>${section.title}</h4>
             <a class="modal-document-link" href="${section.link.href}" target="_blank" rel="noreferrer">${section.link.label}</a>
+          </section>
+        `;
+      }
+
+      if (section.video) {
+        return `
+          <section class="modal-section">
+            <h4>${section.title}</h4>
+            <video class="modal-video" autoplay muted loop playsinline aria-label="${section.video.label}">
+              <source src="${section.video.src}" type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
           </section>
         `;
       }
