@@ -151,40 +151,6 @@ const projectSlides = [
         }
       ]
     }
-  },
-  {
-    title: "Project Five",
-    meta: "Work 05",
-    summary:
-      "A slide for collaborative production, communication, and design ownership in a team pipeline.",
-    imageSrc: "public/img/placeholder-word-v2.svg",
-    imageAlt: "Placeholder image for project five",
-    detail: {
-      intro:
-        "Use this project to show how you contribute as a generalist designer within a team setting.",
-      sections: [
-        {
-          title: "Overview",
-          items: [
-            "Team size and production context",
-            "Your ownership and responsibilities",
-            "Main design constraints"
-          ]
-        },
-        {
-          title: "Collaboration",
-          items: [
-            "How you communicated design intent",
-            "What tradeoffs shaped the result",
-            "What you learned from team production"
-          ]
-        },
-        {
-          title: "Media",
-          media: ["Team build placeholder", "Feature screenshot", "Presentation or trailer"]
-        }
-      ]
-    }
   }
 ];
 
@@ -228,8 +194,7 @@ function renderSlides() {
                 <p class="hero-copy">
                   I make games to explore the unique experiences and ideas that interaction
                   can create. To me, what makes games special is that the player is part of
-                  the experience. That interaction can make emotions feel more personal,
-                  immersive, and resonant.
+                  the experience.
                 </p>
                 <div class="contact-links">
                   <a href="mailto:erfeizhou3772@gmail.com">Email</a>
