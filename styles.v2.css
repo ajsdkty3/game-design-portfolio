@@ -466,7 +466,10 @@ button {
 }
 
 .modal {
-  overflow-y: auto;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  overflow: hidden;
   position: fixed;
   inset: 0;
   z-index: 40;
@@ -484,10 +487,13 @@ button {
 
 .modal-panel {
   position: relative;
-  width: min(920px, calc(100% - 24px));
+  width: min(920px, 100%);
+  height: min(585px, calc(75dvh - 36px));
   min-height: 0;
-  margin: 12px auto;
-  overflow-y: auto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: #333333;
   border: 1px solid rgba(250, 249, 240, 0.09);
   padding: 24px;
@@ -536,6 +542,8 @@ button {
 }
 
 .modal-close {
+  flex: 0 0 auto;
+  align-self: flex-start;
   display: inline-flex;
   margin-left: auto;
   margin-bottom: 18px;
@@ -722,4 +730,56 @@ button {
 .modal-panel.shardemonium-modal::before {
   background-image: url("content/Shardemonium_bg.png");
   filter: blur(3px) brightness(0.4) saturate(0.95);
+}
+/* Keep project slides black while preserving detail panel backgrounds. */
+.project-slide,
+.project-slide.alt,
+.about-slide {
+  background: #000000;
+}
+
+.project-background,
+.project-with-background::after {
+  display: none;
+}
+
+.intro-content {
+  width: min(1400px, 100%);
+}
+
+.hero-copy {
+  max-width: none;
+  text-wrap: balance;
+}
+
+@media (min-width: 981px) {
+  .intro-content .hero-copy {
+    font-size: clamp(0.75rem, 1.05vw, 1rem);
+    white-space: nowrap;
+  }
+}
+/* Scroll only the text, keeping each panel and its background the same size. */
+#modal-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #777 #252525;
+  overscroll-behavior: contain;
+  padding-right: 12px;
+}
+
+#modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+#modal-content::-webkit-scrollbar-track {
+  background: #252525;
+}
+
+#modal-content::-webkit-scrollbar-thumb {
+  background: #777;
+  border-radius: 4px;
 }

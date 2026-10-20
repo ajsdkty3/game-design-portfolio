@@ -198,14 +198,14 @@ function renderSlides() {
                   <span class="tag tag-red">VFX</span>
                 </div>
                 <p class="hero-copy">
-                  Hi, I'm Erfei Zhou. I make games because there are things I'd rather let people experience than <span style="white-space: nowrap;">simply tell them about.</span>
+                  Hi, I'm Erfei Zhou. I make games because there are things I'd rather let people experience than simply tell them about.
                 </p>
                 <p class="hero-copy">
                   I enjoy experimenting with gameplay, visuals, and the small details that bring an idea to life.
                 </p>
                 <div class="contact-links">
-                  <a href="mailto:erfeizhou3772@gmail.com">Email</a>
-                  <a href="https://blackcloud3772-yun.itch.io/" target="_blank" rel="noreferrer">itch.io</a>
+                  <span>erfeizhou3772@gmail.com</span>
+                  <a href="https://blackcloud3772-yun.itch.io/" target="_blank" rel="noreferrer">itch.io: https://blackcloud3772-yun.itch.io/</a>
                 </div>
               </div>
             </div>
@@ -392,6 +392,7 @@ function openModal(project) {
     </div>
   `;
 
+  content.scrollTop = 0;
   modal.classList.remove("hidden");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
