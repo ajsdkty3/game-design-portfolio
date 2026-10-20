@@ -5,6 +5,7 @@ const projectSlides = [
     summary:
       "A short first-person walking simulator inspired by the SCP universe. I focused on using lighting and visual composition to guide the player through the environment.",
     imageSrc: "public/img/placeholder-word-v2.svg",
+    iconSrc: "content/scp093%20icon.png",
     backgroundSrc: "content/scp093_background.png",
     heroVideoSrc: "content/scp093.mp4",
     imageAlt: "Placeholder image for SCP-093",
@@ -46,6 +47,9 @@ const projectSlides = [
     summary:
       "A first-person climbing game where players follow a mysterious voice toward the top of a tower. I focused on level design, production, and visual design, while coordinating the team through the GDD and task planning.",
     imageSrc: "public/img/placeholder-word-v2.svg",
+    iconSrc: "content/AeroMemoir_icon.png?v=26383c73b2",
+    backgroundSrc: "content/AeroMemoir_bg.png",
+    heroVideoSrc: "content/AeroMemoir.mp4",
     imageAlt: "Placeholder image for AERO MEMOIR",
     links: [
       {
@@ -88,6 +92,9 @@ const projectSlides = [
     summary:
       "A short match-3 game where players complete matching tasks to charge an AI robot. The project explores how layered visual and audio feedback can make simple interactions feel more juicy and satisfying.",
     imageSrc: "public/img/placeholder-word-v2.svg",
+    iconSrc: "content/NoFurtherAction_icon.png",
+    backgroundSrc: "content/NoFutherAction_bg.png",
+    heroVideoSrc: "content/No_Further_Action.mp4",
     imageAlt: "Placeholder image for NO FURTHER ACTION",
     links: [
       {
@@ -123,6 +130,9 @@ const projectSlides = [
     summary:
       "A high-intensity arena shooter inspired by Devil Daggers, built around fast combat and escalating pressure. I focused on level design and visual design, shaping the arena, atmosphere, and combat feedback.",
     imageSrc: "public/img/placeholder-word-v2.svg",
+    iconSrc: "content/Shardemonium_icon.png",
+    backgroundSrc: "content/Shardemonium_bg.png",
+    heroVideoSrc: "content/Shardemonium.mp4",
     imageAlt: "Placeholder image for SHARDEMONIUM",
     links: [
       {
@@ -177,7 +187,7 @@ function renderSlides() {
         return `
           <article class="slide intro-slide" data-slide-index="${index}">
             <div class="slide-surface">
-              <img class="intro-gif" src="public/img/placeholder-text.gif" alt="Animated placeholder background" />
+              <img class="intro-gif" src="content/portfolio_website_bg.png" alt="" aria-hidden="true" />
               <div class="intro-content">
                 <h1 class="hero-title">Game Designer</h1>
                 <div class="tag-row">
@@ -188,13 +198,10 @@ function renderSlides() {
                   <span class="tag tag-red">VFX</span>
                 </div>
                 <p class="hero-copy">
-                  My name is <em>Erfei Zhou</em>. I'm a game designer with experience in
-                  Game Design, Visual Effects, and Scripting.
+                  Hi, I'm Erfei Zhou. I make games because there are things I'd rather let people experience than <span style="white-space: nowrap;">simply tell them about.</span>
                 </p>
                 <p class="hero-copy">
-                  I make games to explore the unique experiences and ideas that interaction
-                  can create. To me, what makes games special is that the player is part of
-                  the experience.
+                  I enjoy experimenting with gameplay, visuals, and the small details that bring an idea to life.
                 </p>
                 <div class="contact-links">
                   <a href="mailto:erfeizhou3772@gmail.com">Email</a>
@@ -209,7 +216,7 @@ function renderSlides() {
       const { project } = slide;
       const isAlt = index % 2 === 1 ? " alt" : "";
       const backgroundImage =
-        index === 1
+        project.backgroundSrc
           ? `<img class="project-background" src="${project.backgroundSrc || project.imageSrc}" alt="" aria-hidden="true" />`
           : "";
       const projectLinks = project.links
@@ -242,7 +249,7 @@ function renderSlides() {
           `;
 
       return `
-        <article class="slide project-slide${backgroundImage ? " project-with-background" : ""}${isAlt}" data-slide-index="${index}">
+        <article class="slide project-slide${backgroundImage ? " project-with-background" : ""}${project.title === "NO FURTHER ACTION" ? " no-further-action-slide" : ""}${project.title === "AERO MEMOIR" ? " aero-memoir-slide" : ""}${project.title === "SHARDEMONIUM" ? " shardemonium-slide" : ""}${isAlt}" data-slide-index="${index}">
           ${backgroundImage}
           <div class="slide-surface">
             <div class="project-layout">
@@ -275,15 +282,17 @@ function renderSelector() {
     .map((slide, index) => {
       if (slide.type === "intro") {
         return `
-          <button class="selector-button active" type="button" data-slide-target="${index}" aria-label="Intro">
-            <span class="selector-icon">E</span>
+          <button class="selector-button active" type="button" data-slide-target="${index}" aria-label="Home">
+            <svg class="selector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="padding: 20%;">
+              <path d="M3 10.5 12 3l9 7.5M5 9v12h5v-7h4v7h5V9" />
+            </svg>
           </button>
         `;
       }
 
       return `
         <button class="selector-button" type="button" data-slide-target="${index}" aria-label="${slide.project.title}">
-          <img src="${slide.project.imageSrc}" alt="${slide.project.imageAlt}" />
+          <img src="${slide.project.iconSrc || slide.project.imageSrc}" alt="${slide.project.iconSrc ? slide.project.title + ' icon' : slide.project.imageAlt}" />
         </button>
       `;
     })
@@ -323,6 +332,9 @@ function openModal(project) {
   const panel = modal.querySelector(".modal-panel");
 
   panel.classList.toggle("scp-modal", project.title === "SCP-093");
+  panel.classList.toggle("no-further-action-modal", project.title === "NO FURTHER ACTION");
+  panel.classList.toggle("aero-memoir-modal", project.title === "AERO MEMOIR");
+  panel.classList.toggle("shardemonium-modal", project.title === "SHARDEMONIUM");
 
   const sectionsHtml = project.detail.sections
     .map((section) => {
